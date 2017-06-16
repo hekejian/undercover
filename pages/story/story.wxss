@@ -1,0 +1,83 @@
+@import "../common/foot.wxss";
+.navigator{
+  background: #6C5BB7;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 10rpx;
+}
+.groupAvatar{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+.story{
+  margin: 10rpx;
+  background: #FCF3CF;
+  display: flex;
+  flex-direction: column;
+}
+
+.storyAuthor{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx 30rpx 10rpx 30rpx;
+  border-bottom: solid;
+  border-width: thin;
+  border-color: #F2F2F2;
+}
+.avatar1{
+  width:85rpx;
+  height:85rpx;
+  border-radius: 50%; 
+  margin-left:10rpx;
+  margin-right: 10rpx;
+}
+.AuthorText{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.nickName{
+  font-weight: bold;
+}
+.storyTime{
+  padding-top: 10rpx;
+  font-size: 12px;
+}
+.storyContent{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 10rpx;
+}
+
+.content{
+  font-weight: 500;
+  font-size: 26rpx
+}
+.ImageGroup{
+  display: inline-block;
+}
+.image1{
+  max-width: 710rpx;
+  max-height: 710rpx;
+}
+.image2,.image4{
+  max-width:349rpx;
+  max-height: 349rpx;
+  padding: 5rpx;
+}
+.image3,.image5,.image6,.image7,.image8,.image9{
+  max-width: 230rpx;
+  max-height: 230rpx;
+  padding: 5rpx;
+}
+.audio{
+  background: #FCF3CF
+
+}
+
+

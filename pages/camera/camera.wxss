@@ -1,0 +1,5 @@
+.camera{
+    height: 100rpx;
+    width: 100%;
+    text-align: center
+}

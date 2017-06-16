@@ -1,0 +1,40 @@
+<import src="../common/foot.wxml" />
+<view class="container log-list">
+
+<view class="friends">
+  <block wx:for-items="{{verifyList}}" wx:key="{{item.openId}}">
+    <view class="person" id="{{item.openId}}">
+      <image class="avatar" src="{{item.avatarUrl}}"></image>
+      <view class="Text1">
+        <text class="nickName">{{item.nickName}}</text>
+        <text class="info">对方请求添加你为好友</text>
+      </view>
+
+      <view class="refuse" bindtap="refuse" data-open-id ="{{item.openId}}">
+        <text class = "btnText">丑拒</text>
+      </view>
+      <view class="accept" bindtap="accept" data-open-id ="{{item.openId}}">
+        <text class = "btnText">美受</text>
+      </view>
+    </view>
+  </block>
+
+  <block wx:for-items="{{friendsInfo}}" wx:key="{{item.openId}}">
+    <view id="{{item.openId}}" data-open-id="{{item.openId}}" data-type="{{item.type}}" class="person" bindtap="openChat" >
+      <image class="avatar" src="{{item.avatarUrl}}"></image>
+      <view class="Text">
+        <text class="nickName">{{item.nickName}}</text>
+        <text class="info">{{item.nearestMessage.content}}</text>
+      </view>
+      <view class="time-message">
+        <view class="time">{{item.lastTime}}</view>
+        <view wx:if="{{item.newMessages.length>0}}" class="messageNumber">
+          <text>{{item.newMessages.length}}</text>
+        </view>
+      </view>
+    </view> 
+  </block>
+</view>
+
+ <template is="footTemp" />
+</view>

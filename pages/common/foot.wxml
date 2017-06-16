@@ -1,0 +1,5 @@
+<template name="footTemp">
+    <view class = "foot" bindtap="note">
+        <image class="foot-image" src="../materials/foot1.png"></image>
+    </view>
+</template>

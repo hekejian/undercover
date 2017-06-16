@@ -1,0 +1,45 @@
+<view class="page-wrap">
+<view class = "navigation1">
+    <view class="navigation">
+        <view class = "back" bindtap="back">
+            <image class="backIcon" src="../materials/back1.png"></image>
+        </view>
+        <view class="GroupAvatars" bindtap="kindToggle">
+                 <image class="kind-list-img" src="{{friendInfo.avatarUrl}}"></image>
+        </view>
+    </view>
+    <view wx:if="{{friendInfo.type == 'stranger'}}" class = "addOrdelete">
+        <view class = "deletefriend" bindtap="deletefriend">
+            <image class="addImage" src="../materials/delete.png"></image>
+            <text>对方好讨厌</text>
+        </view>
+        <view class = "addfriend" bindtap="addfriend">
+            <text>对方好有爱</text>
+            <image class="deleteImage" src="../materials/Add.png"></image>
+        </view>
+    </view>
+</view>
+    <scroll-view class="chat-container" scroll-y scroll-into-view="{{lastMessageId}}" scroll-top="9999999999">
+        <view wx:for="{{messages}}" wx:for-item="message" wx:key="id" id="{{message.id}}" class="message {{message.type}}">
+            <view wx:if="{{message.type == 'speak'}}" class="user-message {{message.isMe ? 'me' : 'other'}}">
+                <image class="avatar" src="{{message.user.avatarUrl}}" ></image>
+               <view class="textContainer"> 
+                <view class="text">
+                    <view class="nickname">{{message.user.nickName}}</view>
+                    <view class="content">{{message.content}}</view>
+                </view>
+                </view>
+            </view>
+            <view wx:if="{{message.type == 'system'}}" class="system-message">
+                {{message.content}}
+            </view>
+        </view>
+    </scroll-view>
+    <view class="input-panel">
+        <image class="pic-icon" src="../materials/clip-icon.png" style="width:60rpx;height:44rpx"></image>
+        <input auto-focus type="text" value="{{inputContent}}" bindchange="changeInputContent" class="send-input"></input>
+        <button class ="send-btn" bindtap="sendMessage">
+            <image src="../materials/send2.png" style="width:65rpx;height:65rpx"></image>
+        </button>
+    </view>
+</view>

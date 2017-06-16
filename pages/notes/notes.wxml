@@ -1,0 +1,88 @@
+<view class = "notes-container">
+    <view class="note-area">
+        <view class = "textarea-wrp">
+            <textarea auto-focus="true" placeholder="留下你的足迹..." placeholder-style="font-size:30rpx" bindblur="bindTextAreaBlur"/>
+        </view>
+    </view>
+     <view class="weui-cells">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                  <view class="weui-uploader__title">点击可预览选好的图片</view>
+                  <view class="weui-uploader__info">{{imageList.length}}/{{count[countIndex]}}</view>
+                </view>
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files">
+                    <block wx:for="{{imageList}}" wx:for-item="image">
+                      <view class="weui-uploader__file">
+                        <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" mode="aspectFill" bindtap="previewImage"></image>
+                      </view>
+                    </block>
+                  </view>
+                  <view class="weui-uploader__input-box">
+                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="page-body-info">
+          <block wx:if="{{src === ''}}">
+            <view class="image-plus image-plus-nb" bindtap="chooseVideo">
+              <view class="image-plus-horizontal"></view>
+              <view class="image-plus-vertical"></view>
+            </view>
+            <view class="image-plus-text">添加视频</view>
+          </block>
+          <block wx:if="{{src != ''}}">
+            <video src="{{src}}" class="video"></video>
+          </block>
+      </view>
+      <view class = "blank"><p></p></view>
+      
+    <view class="record-section">
+      <block wx:if="{{recording === false && hasRecord === false}}">
+        <view class="page-body-time">
+          <text class="time-big">{{formatedRecordTime}}</text>
+        </view>
+        <view  class="record-begin" bindtap="startRecord">
+          <image src="../materials/record1.png"></image>
+        </view>
+      </block>
+      <block wx:if="{{recording === true}}">
+        <view class="page-body-time">
+          <text class="time-big">{{formatedRecordTime}}</text>
+        </view>
+        <view class="page-body-buttons">
+          <view class="page-body-button" bindtap="stopRecord">
+            <image class="button-stop-record" src="../materials/stop.png"></image>
+          </view>
+        </view>
+      </block>
+       <block wx:if="{{hasRecord === true}}">
+        <view class="page-body-time">
+          <text class="time-big">{{formatedPlayTime}}</text>
+          <text class="time-small">{{formatedRecordTime}}</text>
+        </view>
+        <view class ="record-btns">
+          <view class="page-body-button" bindtap="playVoice">
+            <image src="../materials/play1.png"></image>
+          </view>
+          <view class = "ensure-btn" bindtap="ensure"><p class= "btn-info">确定</p></view>
+          <view class="page-body-button" bindtap="clear">
+            <image src="../materials/trash1.png"></image>
+          </view>
+          
+        </view>
+        
+      </block>
+
+    </view>
+    <view class="up-container" bindtap="upNotes">
+      <view class="btn">
+        <text class="btn-text">发表</text>
+      </view>
+    </view>
+</view>

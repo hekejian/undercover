@@ -1,0 +1,40 @@
+<import src="../common/foot.wxml" />
+
+<view class="contain">
+    <view class="navigator">
+        <image class="groupAvatar" src="{{groupInfo.avatarUrl}}"></image>
+    </view>
+    <scroll-view class="story-container" scroll-y scroll-top="9999999">
+        <block class="storyGroup" wx:for="{{groupStorys}}" wx:for-item="story" wx:for-index="groupIndex">
+            <view class="story" style="background:{{color[groupIndex%7]}}">
+                <view class="storyAuthor">
+                    <image class="avatar1" src="{{story.source.avatarUrl}}"></image>
+                    <view class="AuthorText">
+                        <text class="nickName">{{story.source.nickName}}</text>
+                        <text class="storyTime">{{story.time}}</text>
+                    </view>
+                </view>
+                <view class="storyContent">
+                    <view class = "imageView">
+                        <block class="ImageGroup" wx:for="{{imageList[groupIndex]}}" wx:for-item="image">
+                            <image class= "image{{imageList[groupIndex].length}}"  src="{{image}}" bindtap="previewImage" data-images-src="{{imageList[groupIndex]}}" data-src="{{image}}"></image>
+                        </block>
+                    </view>
+
+                    <view wx:if="{{story.voice != null}}" class="vidio-container" style="text-align: left;">
+                        <video id="myVideo" src="{{story.voice.src}}" binderror="videoErrorCallback" enable-danmu danmu-btn controls></video>
+                    </view>
+                    <view wx:if="{{story.video != null}}" class="voice-container" style="text-align: left;">
+                        <audio  style="text-align: left" src="{{story.audio.src}}" poster="{{story.audio.poster}}" name="{{story.audio.name}}" author="{{story.audio.author}}" action="{{story.audio.audioAction}}" controls></audio>
+                    </view>
+                
+                    <view wx:if="{{story.content != ''}}" class="content-container">
+                        <text class="content">{{story.content}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+    <template is="footTemp" />
+    
+</view>

@@ -1,0 +1,11 @@
+.foot-image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  
+}
+.foot{
+  position: fixed;
+  bottom: 30rpx;
+  right: 30rpx;
+}
