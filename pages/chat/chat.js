@@ -57,7 +57,10 @@ Page({
         scrollTop:99999,
         groupNumber:[], //list
         long:false,
-        show:false,
+        show:true,
+        state:'等待中...',
+        enter:3,
+        total:6,
     },
    
     onLoad(options){
@@ -70,30 +73,7 @@ Page({
         //var groupOpenId = options.openId
         var groupOpenId = '58afeeed834b87fc515f9f35'
         appInstance.globalData.enterOpenId = groupOpenId
-        /*if (appInstance.globalData.groupsInfo) {
-            var groupsInfo = appInstance.globalData.groupsInfo
-            for (var i = 0; i < groupsInfo.length; i++) {
-                if(groupsInfo[i].openId == groupOpenId){
-                    //已经存在获取数据
-                    getInfo = true
-                    addgroup = false
-                    that.setData({
-                        groupInfo : groupsInfo[i],
-                        messages : groupsInfo[i].newMessages
-                    })
-                    var groupsNumber = appInstance.globalData.groupMember
-                    for (var j = 0; j < groupsNumber.length; j++) {
-                        if (groupOpenId == groupsNumber[j].openId) {
-                            console.log("getGroupNumber",groupsNumber[j].list)
-                            that.setData({
-                                groupNumber : groupsNumber[j].list
-                            })
-                        }
-                    }
-                }
-            }
-        }
-        */
+        
         if (appInstance.globalData.groupsInfo) {
             if (appInstance.globalData.groupsInfo.openId == groupOpenId) {
                 getInfo = true
@@ -211,6 +191,9 @@ Page({
             /*if(add.targetId == groupOpenId && add.data.openId == appInstance.globalData.myId){
                 //event.emit('addNewGroup',groupOpenId) 这是什么意思
             }*/
+        })
+        event.on('copyNumber',this,function(){
+            
         })
 
         event.on('add2Group',this,function(add2){
@@ -335,6 +318,7 @@ Page({
                 this.pushMessage(createUserMessage(groupMessage[i].content,who,isMe))
             }
         }
+       
         
          //this.pushMessage(createSystemMessage('正在加入群聊...'));
         //this.tunnelListener()
@@ -347,6 +331,14 @@ Page({
      */
     onShow() {
         //重新启动需要做什么吗？
+         var groupNumber = this.data.groupNumber
+            for(var i = 0; i<8; i++){
+                groupNumber[i] = appInstance.globalData.groupMember[0]
+            }
+            console.log('groupNumber',groupNumber)
+            this.setData({
+                groupNumber
+            })
     },
 
     addGroup(groupOpenId){
@@ -458,7 +450,6 @@ Page({
 
     kindToggle: function () {
        var show = !this.data.show
-       console.log(show)
        this.setData({
            show:show
        })

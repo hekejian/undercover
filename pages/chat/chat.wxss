@@ -265,16 +265,19 @@
     border-radius: 50%;
 }
 .detailInfo{
-    padding-top: 5rpx;
   border-bottom-style: solid;
   border-width: thin;
   border-color: #F2F2F2;
   width: 100%;
   background-color: #fff;
-  padding: 10rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
   display: flex;
-  flex-direction: row;
-  justify-content:flex-start;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
 
 }
 .personName{
@@ -291,23 +294,17 @@
     height: auto;
 }
 .navigator-box {
-  opacity: 0;
+  opacity: 1;
   position: relative;
   background-color: #FFFFFF;
   line-height: 1.41176471;
-  transform: translateY(-50%);
-  transition: .3s;
-}
-.navigator-box-show {
-  opacity: 1;
   transform: translateY(0);
-  height: 600rpx;
+  transition: .3s;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-.navigator-box-show-short{
-    opacity: 1;
-    transform: translateY(0);
-    max-height: 600rpx;
-}
+
 .avatar-block{
     height: 300rpx;
 }
@@ -332,9 +329,26 @@
 }
 .back{
     width: 20%;
+    margin-right: auto;
     display: inline-block;
-    align-items: flex-start;
+    align-items: center;
     align-content: flex-start;
     flex-direction: row;
     justify-content: flex-start;
+}
+.state{
+    width: 20%;
+    font-size:16px; 
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+.detail-state{
+    font-size:16px; 
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto
 }

@@ -4,14 +4,12 @@
         <view class = "back" >
             <image class="backIcon" src="../materials/back1.png" bindtap="back"></image>
         </view>
-        <scroll-view class="GroupAvatars" bindtap="kindToggle" scroll-top="999999">
-              <block wx:for-items="{{groupNumber}}" wx:key="{{item.openId}}">
-                 <image class="kind-list-img" src="{{item.avatarUrl}}"></image>
-              </block>
-        </scroll-view>
+        
+        <view class="detail-state" bindtap="kindToggle">{{enter}}人准备/{{total}}人局</view>
+        <view class="state">{{state}}</view>
     </view>
     <view class="showAvatars {{show ? 'show-Avatars':''}}">
-        <scroll-view scroll-y="true" scroll-top="999999" class="navigator-box {{groupNumber.length>6 ? 'navigator-box-show':'navigator-box-show-short'}}">
+        <scroll-view scroll-y="true" scroll-top="999999" class="navigator-box">
              <block wx:for-items="{{groupNumber}}" wx:key="{{item.openId}}">
                 <view id="{{item.openId}}" class="detailInfo" bindtap="chatPerson"  data-open-id = "{{item.openId}}">
                     <image class="personAvatar" src="{{item.avatarUrl}}"  ></image>

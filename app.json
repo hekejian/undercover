@@ -6,9 +6,7 @@
         "pages/camera/camera",
         "pages/notes/notes",
         "pages/personalChat/personalChat",
-        
         "pages/story/story"
-        
         
     ],
     "window": {
@@ -30,14 +28,14 @@
       "text": "friends"
     },{
       "pagePath": "pages/camera/camera",
-      "iconPath": "pages/materials/Camera2.png",
-      "selectedIconPath": "pages/materials/Camera1.png",
-      "text": "Camera"
+      "iconPath": "pages/materials/game1.jpg",
+      "selectedIconPath": "pages/materials/game2.png",
+      "text": "game"
     },{
       "pagePath": "pages/story/story",
-      "iconPath": "pages/materials/story.png",
-      "selectedIconPath": "pages/materials/story1.png",
-      "text": "story"
+      "iconPath": "pages/materials/share1.png",
+      "selectedIconPath": "pages/materials/share2.png",
+      "text": "share"
     }]
   },
    "networkTimeout": {
