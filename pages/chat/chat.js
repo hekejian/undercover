@@ -61,6 +61,7 @@ Page({
         state:'等待中...',
         enter:3,
         total:6,
+        enterNumber:3,
     },
    
     onLoad(options){
@@ -335,15 +336,12 @@ Page({
             for(var i = 0; i<8; i++){
                 groupNumber[i] = appInstance.globalData.groupMember[0]
             }
-            console.log('groupNumber',groupNumber)
             this.setData({
                 groupNumber
             })
     },
 
     addGroup(groupOpenId){
-        console.log("afdasdfasdfasdd")
-        console.log(this.tunnel)
          setTimeout(() => {
             if (this.tunnel) {
                 addgroup = true

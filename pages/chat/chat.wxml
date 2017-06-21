@@ -9,16 +9,26 @@
         <view class="state">{{state}}</view>
     </view>
     <view class="showAvatars {{show ? 'show-Avatars':''}}">
-        <scroll-view scroll-y="true" scroll-top="999999" class="navigator-box">
-             <block wx:for-items="{{groupNumber}}" wx:key="{{item.openId}}">
-                <view id="{{item.openId}}" class="detailInfo" bindtap="chatPerson"  data-open-id = "{{item.openId}}">
+        <view class = "enter-box">
+            <view wx:for-items="{{groupNumber}}" wx:key="{{item.openId}}">
+                <view class="detailInfo" bindtap="chatPerson"  data-open-id = "{{item.openId}}">
                     <image class="personAvatar" src="{{item.avatarUrl}}"  ></image>
                     <text class="personName">{{item.nickName}}</text> 
                 </view>
-            </block>
-        </scroll-view>
-           
+            </view>
+        </view>
+        <view class="select-panel">
+            <view class="ready">
+                <view class="ready-info">准备</view>
+            </view>
+            <view class="select-detail">
+                <view class="pay select-text">充值</view>
+                <view class="invite select-text">邀请好友</view>
+                <view class="visitor select-text">观战</view>
+            </view>
+        </view>
     </view>
+
 </view>
     <scroll-view class="chat-container" scroll-y scroll-into-view="{{lastMessageId}}" scroll-top="9999999999">
         <view wx:for="{{messages}}" wx:for-item="message" wx:key="id" id="{{message.id}}" class="message {{message.type}}">
@@ -27,7 +37,10 @@
                <view class="textContainer"> 
                 <view class="text">
                     <view class="nickname">{{message.user.nickName}}</view>
-                    <view class="content">{{message.content}}</view>
+                    <view class="content">
+                        <view class="label">{{enterNumber}}</view>
+                        <view class="detail-content">{{message.content}}</view>
+                    </view>
                 </view>
                 </view>
             </view>
@@ -37,7 +50,7 @@
         </view>
     </scroll-view>
     <view class="input-panel">
-        <image class="pic-icon" src="../materials/clip-icon.png" style="width:60rpx;height:44rpx"></image>
+        <image class="pic-icon" src="../materials/record.png" ></image>
         <input auto-focus type="text" value="{{inputContent}}" bindchange="changeInputContent" class="send-input"></input>
         <view class ="send-btn" bindtap="sendMessage">
             <image src="../materials/send2.png" style="width:60rpx;height:60rpx"></image>
